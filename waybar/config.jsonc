@@ -1,0 +1,119 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 4,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "network",
+        "pulseaudio",
+        "power-profiles-daemon",
+        "battery",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "format": "{id}"
+    },
+
+    "mpris": {
+        "format": " {artist} - {title}",
+        "format-paused": " {artist} - {title}",
+        "max-length": 30
+    },
+
+    "clock": {
+        "format": "{:%a %b %d  %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click": "mode",
+        "calendar": {
+            "format": {
+                "today": "<span color='#cba6f7'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        },
+        "tooltip": true,
+        "tooltip-format-activated": "Idle Inhibitor: Active",
+        "tooltip-format-deactivated": "Idle Inhibitor: Inactive"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2 ,
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "format": " {percentage}%",
+        "interval": 2 ,
+        "on-click": "kitty -e htop"
+    },
+
+    "network": {
+        "format-wifi": " Online",
+        "format-ethernet": " Online",
+        "format-linked": "󰈀 Online",
+        "format-disconnected": "󰖪 Offline",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "on-click": "kitty -e nmtui"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power Profile: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰓅",
+            "performance": "󱐋",
+            "balanced": "󰗑",
+            "power-saver": ""
+        }
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    }
+}
